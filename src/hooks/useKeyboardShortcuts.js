@@ -3,7 +3,7 @@ import { useEditorStore, useTemporalStore } from '../store/useEditorStore';
 
 export default function useKeyboardShortcuts() {
   const togglePlayback = useEditorStore(state => state.togglePlayback);
-  const { undo, redo } = useTemporalStore.getState();
+  const { undo, redo } = useTemporalStore();
 
   useEffect(() => {
     const handleKeyDown = (event) => {
