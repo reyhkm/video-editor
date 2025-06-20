@@ -21,7 +21,7 @@
     "react-resizable-panels": "^2.0.16",
     "tailwind-merge": "^2.2.2",
     "uuid": "^9.0.1",
-    "zundo": "^4.2.0",
+    "zundo": "*",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
