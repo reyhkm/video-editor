@@ -3,7 +3,10 @@ import { useEditorStore, useTemporalStore } from '../store/useEditorStore';
 
 export default function useKeyboardShortcuts() {
   const togglePlayback = useEditorStore(state => state.togglePlayback);
-  const { undo, redo } = useTemporalStore();
+  // Use selectors to get only the functions needed.
+  // This prevents the hook from re-executing when other state (like pastStates) changes.
+  const undo = useTemporalStore(state => state.undo);
+  const redo = useTemporalStore(state => state.redo);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
