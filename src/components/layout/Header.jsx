@@ -5,7 +5,7 @@ import ExportModal from '../ExportModal';
 
 export default function Header() {
   const { undo, redo } = useTemporalStore;
-  const { pastStates, futureStates } = useEditorStore(useTemporalStore.getState);
+  const { pastStates, futureStates } = useEditorStore(useTemporalStore);
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
 
   const canUndo = pastStates.length > 0;
