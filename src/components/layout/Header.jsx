@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { FileVideo, Download, Undo, Redo } from 'lucide-react';
-import { useTemporalStore } from '../../store/useEditorStore';
+import { useEditorStore, useTemporalStore } from '../../store/useEditorStore';
 import ExportModal from '../ExportModal';
 
 export default function Header() {
-  const { undo, redo, futureStates, pastStates } = useTemporalStore();
+  const { undo, redo } = useTemporalStore;
+  const { pastStates, futureStates } = useEditorStore(useTemporalStore.getState);
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
 
   const canUndo = pastStates.length > 0;
